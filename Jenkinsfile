@@ -7,7 +7,18 @@ pipeline {
                 git branch: 'main', credentialsId: 'raji_git', url: 'https://github.com/rajeeb007/dockerintegration.git'
 
             }
-
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test' 
+            
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn install' 
+            
+            }
         }
         
     }
