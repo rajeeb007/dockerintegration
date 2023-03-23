@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh 'docker build -t new:1.0 .'
                
-               }
+               
             
             }
         }
