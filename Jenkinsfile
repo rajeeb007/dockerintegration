@@ -51,6 +51,11 @@ pipeline {
                 sh 'docker push rajeeb007/docker-helloworld1'
             }
         }
+        post{
+            always {  
+                sh 'docker logout'     
+            }      
+        }
         
         
         
