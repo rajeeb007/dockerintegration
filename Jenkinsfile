@@ -40,7 +40,7 @@ pipeline {
         stage('docker login and push image') {
             steps {
                 script {
-                    withCredentials([usernameColonPassword(credentialsId: 'rajeeb007', variable: 'docker_key')]) {
+                    withCredentials([usernameColonPassword(credentialsId: 'docker_key', variable: 'rajeeb007')]) {
                         sh 'docker login -u rajeeb007 -p $(docker_key)'
                         sh 'docker push rajeeb007/new:1.0'
                    }
