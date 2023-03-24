@@ -34,22 +34,32 @@ pipeline {
             }
         }
         stage('docker image building') {
+
             steps {
+
                 sh 'docker build -t rajeeb007/docker-helloworld1 .'
                
-               
-            
             }
+
         }
         stage('Login') {
+
             steps {
+
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+
             }
+
         }
+
         stage('pushing to docker hub') {
+
             steps {
+
                 sh 'docker push rajeeb007/docker-helloworld1'
+
             }
+
         }
         
         
@@ -57,9 +67,13 @@ pipeline {
         
     }
     post{
+
             always {  
-                sh 'docker logout'     
+
+                sh 'docker logout'   
+
             }      
+            
         }
 
     
