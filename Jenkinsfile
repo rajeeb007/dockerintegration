@@ -31,27 +31,27 @@ pipeline {
         }
         stage('docker image building') {
             steps {
-                sh 'docker build -t new:1.0 .'
+                sh 'docker build -t rajeeb007/docker-helloworld1 .'
                
                
             
             }
         }
-        stage('docker login and push image') {
-            steps {
-                script {
-                    withCredentials([usernameColonPassword(credentialsId: 'docker_key', variable: 'rajeeb007')]) {
-                        sh 'docker login -u rajeeb007 -p $(docker_key)'
-                        sh 'docker push rajeeb007/new:1.0'
-                   }
-                }
+        // stage('docker login and push image') {
+        //     steps {
+        //         script {
+        //             withCredentials([usernameColonPassword(credentialsId: 'docker_key', variable: 'rajeeb007')]) {
+        //                 sh 'docker login -u rajeeb007 -p $(docker_key)'
+        //                 sh 'docker push rajeeb007/new:1.0'
+        //            }
+        //         }
                 
-            }
+        //     }
                
                
             
             
-        }
+        // }
         
     }
 
