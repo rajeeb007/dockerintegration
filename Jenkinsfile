@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        
+        DOCKERHUB_CREDENTIALS = credentials('docker_key')
+    }
 
     stages {
         stage('git checkout') {
@@ -37,21 +41,13 @@ pipeline {
             
             }
         }
-        // stage('docker login and push image') {
-        //     steps {
-        //         script {
-        //             withCredentials([usernameColonPassword(credentialsId: 'docker_key', variable: 'rajeeb007')]) {
-        //                 sh 'docker login -u rajeeb007 -p $(docker_key)'
-        //                 sh 'docker push rajeeb007/new:1.0'
-        //            }
-        //         }
-                
-        //     }
-               
-               
-            
-            
-        // }
+        stage('Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        
+        
         
     }
 
