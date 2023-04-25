@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', credentialsId: 'raji_git', url: 'https://github.com/rajeeb007/dockerintegration.git'
+                git branch: 'main', credentialsId: 'git_key', url: 'https://github.com/rajeeb007/dockerintegration.git'
 
             }
         }
