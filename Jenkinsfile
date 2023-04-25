@@ -37,7 +37,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/docker-helloworld1 .'
+                sh 'docker build -t rajeeb007/docker-helloworld1:1.2 .'
                
             }
 
@@ -56,7 +56,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/docker-helloworld1'
+                sh 'docker push rajeeb007/docker-helloworld1:1.2'
 
             }
 
